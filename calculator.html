@@ -1,0 +1,216 @@
+<!DOCTYPE html >
+<html > 
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 	
+	<title>calculator</title>    
+	<style>
+		*{
+			padding :0;
+			margin :auto ;
+			background-color :#fff;
+			text-align :center ; 
+			margin-top:5px; 
+		}
+		#myform{
+			 width :100%; 
+			 height :100%;
+			 background-color :#fff;
+			border: 10px ;
+			border-color:red blue green yellow;
+			border-style: solid  double;
+			 border-radius :20px ;
+			 font-weight :bold ;
+		 }
+		#display{
+			width :320px;
+			height :100px;
+			text-align :left ;
+			font-size :33px ;
+			background-color :#eee ;
+			 border-radius :15px ;
+			 border :0;
+			 pointer-events :none;
+			 margin :auto ;
+			 position :relative ; 
+			 top:9px;
+			 font-family: serif ;  
+			 max-width :360px;
+			 max-height :150px; 
+			 -ms-flex: b ;
+		 }
+		#number{ 
+			 width :70px;
+			 height :70px;
+			 margin :3px; 
+			 border-radius :50%;
+			 position :relative ; 
+			 top:15px;
+			 border :0; 
+			 outline :none;  
+			 font-size :30px ; 
+			 font-weight :bold ; 
+			 color:#fff;
+			 background-color:#000;
+		 }
+		#number:hover{
+			 background-color :#f80 ;			 
+			 color:#000;
+		 }  
+		#sign{
+			 width :70px;
+			 height :70px;
+			 margin :3px;
+			 border-radius :50%;
+			 position:relative ;
+			 top:15px ;
+			 border :0;
+			 background-color :#00f;
+			 outline :none;
+			 color :black ;
+			 font-size :30px ;
+			 font-weight :bold ;   
+		}
+		#sign:hover{
+			background-color :#f80 ;
+			color :white ;
+		}
+		#sign1{
+			 width :70px;
+			 height :70px;
+			 margin :3px;
+			 border-radius :50%;
+			 position:relative ;
+			 top:15px ;
+			 border :0;
+			 background-color :#f00;
+			 outline :none;
+			 color :#fff ;
+			 font-size :30px ;
+			 font-weight :bold ;   
+		}
+		#sign1:hover{
+			background-color :#00f ;
+			color :black ;
+		}
+		#clear{
+			width :70px;
+			height :70px;
+			margin :3px;
+			border-radius :50%;
+			position:relative ;
+			top:15px ;
+			border :0;
+			background-color :#f00;
+			outline :none;
+			color :white ;
+			font-size :30px ;
+			font-weight: bold ;
+		}	
+		#clear:hover{  background-color :#f80 ;    color:black ;}
+		#clear1{
+			width :70px;
+			height :70px;
+			margin :3px;
+			border-radius :50%;
+			position:relative ;
+			top:15px ;
+			border :0;
+			background-color :#f00;
+			outline :none;
+			color :white ;
+			font-size :30px ;
+			font-weight: bold ;
+		}
+		#clear1:hover{  background-color :#00f ;    color:black ;}	
+		#mycossin{ 
+			width :70px;
+			height :70px;
+			margin :3px;			
+			border-radius :50%;
+			position:relative ; 
+			top:15px ;
+			border :0; 
+			background-color : #080 ;
+			outline :none; 
+			color :white ;  
+			font-size :30px ; 
+			font-weight: bold ; 
+		}    
+		#mycossin:hover{ 
+			background-color :#08f ;
+			color :black ;
+		}
+		#myequal{ 
+			width :70px; 
+			height :70px; 
+			margin :3px;   
+			border-radius :50%;
+			position:relative ;
+			top:15px ;
+			border :0;
+			background-color :yellow ;  
+			outline :none; 
+			color :black ; 
+			font-size :40px ;
+			font-weight:bold ;
+		}
+		#myequal:hover{     background-color :#f80 ; color :black ;    }
+	h1{color:#f00;}
+	p{color:#00f;}
+
+	</style>
+</head>
+<body>	
+	<form id="myform"> 
+			<input id="display" type="text"placeholder="welcome" maxlength="10"data-max-chars="10">
+		<br/>
+			<input type="button"id="clear"value="x2"onclick="myX()"> 
+			<input type="button"id="clear1"value="√"onclick="mySqrt()">  	  
+			<input type="button"id="clear"value="DEL"onclick="myDel()"> 
+			<input type="button"id="clear1"value="C"onclick="myC()">  	
+		<br/>  
+			<input type="button"id="mycossin"value="COS"onclick="myCos()" > 			
+			<input type="button"id="mycossin"value="SIN"onclick="mySin()"> 
+			<input type="button"id="mycossin"value="COT"onclick="myCot()">    
+			<input type="button"id="mycossin"value="TAN"onclick="myTan()" >    
+		<br/>  
+			<input type="button"id="number"value="7"onclick="mynumber(7)">
+			<input type="button"id="number"value="8"onclick="mynumber(8)">  
+			<input type="button"id="number"value="9"onclick="mynumber(9)">  
+			<input type="button"id="sign"value="/"onclick="mySign('/')">
+		<br/>  
+			<input type="button"id="number"value="4"onclick="mynumber(4)">
+			<input type="button"id="number"value="5"onclick="mynumber(5)">
+			<input type="button"id="number"value="6"onclick="mynumber(6)">
+			<input type="button"id="sign"value="*"onclick="mySign('*')">
+		<br/>  	
+			<input type="button"id="number"value="1"onclick="mynumber(1)">   
+			<input type="button"id="number"value="2"onclick="mynumber(2)"> 
+			<input type="button"id="number"value="3"onclick="mynumber(3)">
+			<input type="button"id="sign"value="-"onclick="mySign('-')"> 
+		<br/>  
+			<input type="button"id="number"value="0"onclick="mynumber(0)">
+			<input type="button"id="number"value="."onclick="mynumber('.')"> 
+			<input type="button"id="myequal"value="="onclick="myEqual()"> 
+			<input type="button"id="sign1"value="+"onclick="mySign('+')">  
+		<br/>
+	</form>   
+
+	<script>
+		function mynumber(a){myform.display.value +=a;}
+		function mySign(s)	 {myform.display.value +=s;}
+		function myEqual()	 { myform.display.value =eval(myform.display.value)}
+		function myC()			 {myform.display.value =" ";}
+		function myDel()	 	 { var prevalue=myform.display.value ;  myform.display.value=prevalue.substr(0,prevalue.length-1);}  
+		
+		function myX()		 {myform.display.value =(myform.display.value)*(myform.display.value)} 
+		function mySqrt()		 {myform.display.value =Math.sqrt(myform.display.value)} 
+		function myCos()		 {myform.display.value =Math.cos(myform.display.value)} 
+		function mySin()		 {myform.display.value =Math.sin (myform.display.value)}
+		function myTan()		 {myform.display.value =Math.tan (myform.display.value)}
+		function myCot()		 {myform.display.value =1/Math.tan(myform.display.value )} 
+
+	</script>
+	
+</body>
+</html>
